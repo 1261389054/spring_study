@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
  * @author zhangyq
  */
 @Service
-public class UserService {
+public class BookService {
 }

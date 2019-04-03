@@ -1,4 +1,4 @@
-package com.imooc.springstudy.contorllor;
+package com.imooc.springstudy.controller;
 
 import org.springframework.stereotype.Controller;
 
@@ -6,5 +6,5 @@ import org.springframework.stereotype.Controller;
  * @author zhangyq
  */
 @Controller
-public class UserController {
+public class BookController {
 }
