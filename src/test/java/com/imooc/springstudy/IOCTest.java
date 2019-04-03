@@ -1,5 +1,6 @@
 package com.imooc.springstudy;
 
+import com.imooc.springstudy.bean.Blue;
 import com.imooc.springstudy.bean.Person;
 import com.imooc.springstudy.config.MainConfig;
 import com.imooc.springstudy.config.MainConfig2;
@@ -19,6 +20,8 @@ public class IOCTest{
     @Test
     public void testImport(){
         printBeans(applicationContext);
+        Object object = applicationContext.getBean(Blue.class);
+        System.out.println(object);
     }
     private void printBeans(AnnotationConfigApplicationContext applicationContext){
         String[] beanNams = applicationContext.getBeanDefinitionNames();

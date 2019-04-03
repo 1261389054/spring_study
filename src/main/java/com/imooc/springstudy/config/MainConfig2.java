@@ -1,7 +1,10 @@
 package com.imooc.springstudy.config;
 
+import com.imooc.springstudy.bean.Color;
 import com.imooc.springstudy.bean.Person;
+import com.imooc.springstudy.bean.Red;
 import com.imooc.springstudy.condition.LinuxCondition;
+import com.imooc.springstudy.condition.MyImportSelector;
 import com.imooc.springstudy.condition.WindowsCondition;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
@@ -10,6 +13,8 @@ import org.springframework.context.annotation.*;
  * @author zhangyq
  */
 @Configuration
+@Import({Color.class, Red.class, MyImportSelector.class})
+//导入组件， bean 的id默认是类的全类名
 public class MainConfig2 {
 
     //默认单实例
@@ -61,5 +66,7 @@ public class MainConfig2 {
      *      局限于自己写的类
      * 2）.@Bean[导入第三方包里面的组件]
      * 3）.@Import[快速给容器中导入一个组件]
+     *    1),@Import(要导入到容器中的组件)：容器中就会自动注册这个组件，id默认是全类名
+     *    2).ImportSelector:返回需要导入组件的全类名数组
      */
 }
