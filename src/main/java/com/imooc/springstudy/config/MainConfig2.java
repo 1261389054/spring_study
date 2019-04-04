@@ -1,19 +1,20 @@
 package com.imooc.springstudy.config;
 
 import com.imooc.springstudy.bean.Color;
+import com.imooc.springstudy.bean.ColorFactoryBean;
 import com.imooc.springstudy.bean.Person;
 import com.imooc.springstudy.bean.Red;
 import com.imooc.springstudy.condition.LinuxCondition;
+import com.imooc.springstudy.condition.MyImportBeanDefinitionRegistrar;
 import com.imooc.springstudy.condition.MyImportSelector;
 import com.imooc.springstudy.condition.WindowsCondition;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 
 /**
  * @author zhangyq
  */
 @Configuration
-@Import({Color.class, Red.class, MyImportSelector.class})
+@Import({Color.class, Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 //导入组件， bean 的id默认是类的全类名
 public class MainConfig2 {
 
@@ -68,5 +69,14 @@ public class MainConfig2 {
      * 3）.@Import[快速给容器中导入一个组件]
      *    1),@Import(要导入到容器中的组件)：容器中就会自动注册这个组件，id默认是全类名
      *    2).ImportSelector:返回需要导入组件的全类名数组
+     *    3).ImportBeanDefinitionRegistrar：手动注册bean到容器中
+     * 4）.使用Spring提供的FactoryBean（工厂bean）
+     *    1).默认获取的是工厂bean调用getObject()创建的对象
+     *    2).要获取工厂Bean本身，我们需要给id前面加一个&
+     *        &colorFactoryBean
      */
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
+    }
 }

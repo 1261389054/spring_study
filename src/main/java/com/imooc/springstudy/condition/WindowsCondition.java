@@ -20,7 +20,7 @@ public class WindowsCondition implements Condition {
      */
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        //1.能获取到iod使用的beanfactory
+        //1.能获取到ioc使用的beanfactory
         ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
         //2.获取类加载器
         ClassLoader classLoader = context.getClassLoader();
