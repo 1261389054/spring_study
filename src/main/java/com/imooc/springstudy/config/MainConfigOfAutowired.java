@@ -31,11 +31,14 @@ import org.springframework.context.annotation.Primary;
  *
  *  AutowiredAnnotationBeanPostProcessor  解析完成自动装配功能
  *
+ *  3). @Autowired: 构造器，参数，方法，属性
+ *
  *
  * @author zhangyq
  */
 @Configuration
-@ComponentScan({"com.imooc.springstudy.controller","com.imooc.springstudy.service","com.imooc.springstudy.dao"})
+@ComponentScan({"com.imooc.springstudy.controller","com.imooc.springstudy.service",
+        "com.imooc.springstudy.dao","com.imooc.springstudy.bean"})
 public class MainConfigOfAutowired {
     @Primary
     @Bean("bookDao2")

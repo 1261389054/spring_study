@@ -1,8 +1,11 @@
 package com.imooc.springstudy.bean;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author zhangyq
  */
+@Component
 public class Car {
     public Car() {
         System.out.println("car constructor...");
