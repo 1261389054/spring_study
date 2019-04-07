@@ -1,5 +1,8 @@
 package com.imooc.springstudy;
 
+import com.imooc.springstudy.bean.Boss;
+import com.imooc.springstudy.bean.Car;
+import com.imooc.springstudy.bean.Color;
 import com.imooc.springstudy.config.MainConfigOfAutowired;
 import com.imooc.springstudy.config.MainConfigOfLifeCycle;
 import com.imooc.springstudy.dao.BookDao;
@@ -20,8 +23,15 @@ public class IOCTest_Autowired {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAutowired.class);
         BookService bookService = applicationContext.getBean(BookService.class);
         bookService.print();
-        BookDao bookDao = (BookDao) applicationContext.getBean(BookDao.class);
-        System.out.println(bookDao);
+        //BookDao bookDao = (BookDao) applicationContext.getBean(BookDao.class);
+        //System.out.println(bookDao);
+        Boss boss = applicationContext.getBean(Boss.class);
+        System.out.println("boss >>>> " + boss);
+        Car car = applicationContext.getBean(Car.class);
+        System.out.println("car >>>> " + car);
+
+        Color color = applicationContext.getBean(Color.class);
+        System.out.println("color >>>>" + color);
         applicationContext.close();
     }
 
